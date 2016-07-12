@@ -1,0 +1,38 @@
+@()(implicit request: RequestHeader, messages: Messages)
+
+<fieldset class="col-lg-5 col-lg-offset-2">
+    <legend>@Messages("sign.up.account")</legend>
+    <form [ngFormModel]="form" (ngSubmit)="doSignUp()" autocomplete="off">
+
+        <div class="form-group">
+            <label for="firstName">Nome</label>
+            <input id="firstName" ngControl="firstName" placeholder="Primeiro nome" class="form-control input-md" type="text" required/>
+            <span class="help-block">*Insirá um Nome</span>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Sobre nome</label>
+            <input id="lastName" ngControl="lastName" placeholder="Sobre nome" class="form-control input-md" type="text" required/>
+            <span class="help-block">*Insirá o sobre nome</span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" ngControl="email" placeholder="Email" class="form-control input-md" type="text" required>
+            <span class="help-block">*Insirá um Email válido</span>
+            <control-messages control="email"></control-messages>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" ngControl="password" placeholder="Password" class="form-control input-md" type="password" required>
+            <span class="help-block">*Insirá uma senha válida</span>
+            <control-messages control="password"></control-messages>
+        </div>
+
+        <div class="form-group">
+            <button id="submit" type="submit" [disabled]="!form.valid" class="btn btn-lg btn-primary btn-block">@Messages("sign.up")</button>
+        </div>
+
+    </form>
+</fieldset>

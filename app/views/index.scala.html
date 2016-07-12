@@ -1,0 +1,24 @@
+@(message: String)
+@main(message: String) {
+    <script type="text/javascript">
+    System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        },
+        map: {
+          'app': '/assets/javascripts'
+        }
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+    <app>
+        <svg class="spinner">
+            <circle cx="20" cy="20" r="18"></circle>
+        </svg>
+    </app>
+    
+}
